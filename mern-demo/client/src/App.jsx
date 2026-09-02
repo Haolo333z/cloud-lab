@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-// Đã cập nhật đúng URL public port 5000 trên Codespaces của bạn
-const API_URL = 'https://obscure-giggle-v6w4v59vqprq2wqj4-5000.app.github.dev/api/students';
-
+// Đã cập nhật đúng URL public port 5000 trên Codespace mới
+const API_URL = 'https://crispy-succotash-g4gjrgv4v4pcw7xj-5000.app.github.dev/api/students';
 function App() {
   const [students, setStudents] = useState([]);
   const [form, setForm] = useState({ studentId: '', name: '', email: '' });
@@ -61,7 +60,7 @@ function App() {
 
   return (
     <div style={{ maxWidth: 600, margin: '40px auto', fontFamily: 'sans-serif' }}>
-      <h1>Quản lý sinh viên</h1>
+      <h1>Quản lý sinh viên - Phiên bản 2.0</h1>
 
       {/* Câu 48: Form nhập liệu */}
       <form onSubmit={handleSubmit} style={{ marginBottom: 24 }}>

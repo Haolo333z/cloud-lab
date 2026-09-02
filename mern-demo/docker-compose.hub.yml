@@ -1,0 +1,15 @@
+services:
+  backend:
+    image: haolo333z/mern-backend:1.0
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGODB_URI=mongodb+srv://duonghao12:duonghao12@cluster0.maoes6s.mongodb.net/?appName=Cluster0
+
+  frontend:
+    image: haolo333z/mern-frontend:2.0
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
