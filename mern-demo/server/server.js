@@ -13,9 +13,28 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 // =============================
 
-app.use(cors());
-app.use(express.json());
+const allowedOrigins = [
+    process.env.CLIENT_URL,
+    "http://localhost:5173",
+    "http://localhost:3000"
+].filter(Boolean);
 
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Origin không được phép bởi CORS"));
+        }
+    }
+}));
+app.use(express.json());
+app.use((req, res, next) => {
+    res.on("finish", () => {
+        console.log(`${req.method} ${req.originalUrl} - ${res.statusCode}`);
+    });
+    next();
+});
 // =============================
 // API TEST
 // =============================

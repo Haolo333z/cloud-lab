@@ -8,8 +8,14 @@ services:
       - MONGODB_URI=mongodb+srv://duonghao12:duonghao12@cluster0.maoes6s.mongodb.net/?appName=Cluster0
 
   frontend:
+<<<<<<< HEAD
     image: haolo333z/mern-frontend:2.0
     ports:
       - "5173:80"
+=======
+    image: haolo333z/mern-frontend:1.0
+    ports:
+      - "5173:80"       # <-- Sửa lại thành 5173:80 ở đây
+>>>>>>> 9de4b80 (Complete Docker lab progress)
     depends_on:
       - backend
