@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 // Backend chạy tại port 5000
-const API_URL = "https://mern-backend-235871.onrender.com/api/students";
+const API_URL = "/api/students";
 
 function App() {
   const [students, setStudents] = useState([]);

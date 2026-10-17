@@ -137,7 +137,16 @@ app.delete("/api/students/:id", async (req, res) => {
         });
     }
 });
-
+    // =============================
+// HEALTH CHECK ENDPOINT
+// =============================
+app.get('/health', (req, res) => {
+    res.status(200).json({
+        status: 'UP',
+        timestamp: new Date(),
+        uptime: process.uptime()
+    });
+});
 // =============================
 // KẾT NỐI MONGODB
 // =============================
@@ -147,11 +156,13 @@ mongoose
     .then(() => {
         console.log("MongoDB Atlas connected successfully!");
 
+
+        
         app.listen(PORT, () => {
-            console.log(`Backend server running on port ${PORT}`);
+          console.log(`Server running on port ${PORT} - Auto Deploy Test v1.2`);
         });
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         console.error(
             "MongoDB connection failed:",
             error.message
